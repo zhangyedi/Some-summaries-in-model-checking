@@ -126,7 +126,7 @@
 \section{First Section}	
     \textbf{1. }One scenario where \textbf{\emph{'automaton is closed under complementation'}} is necessary:
 
-    ~~~~If an automaton $\mathcal{A}$ is closed under complementation, and an AMA $\mathcal{M}^{\langle\langle A\rangle\rangle\varphi}$ can recognize the set of configurations of $\mathcal{P}$ satisfying $\langle\langle A \rangle\rangle\varphi$ in a bottom-up approach. We assume that $\mathcal{M}^{\neg\langle\langle A \rangle\rangle\varphi }$ has also been computed to recognize $\mathcal{C}_{\mathcal{P}}$ (T. Chen et al. 2016).
+    ~~~~If an automaton $\mathcal{A}$ is closed under complementation, and an AMA $\mathcal{M}^{\langle\langle A\rangle\rangle\varphi}$ can recognize the set of configurations of $\mathcal{P}$ satisfying $\langle\langle A \rangle\rangle\varphi$ in a bottom-up approach. We assume that $\mathcal{M}^{\neg\langle\langle A \rangle\rangle\varphi }$ has also been computed to recognize $\mathcal{C}_{\mathcal{P}}$ (T Chen et al. 2016).
     \\
 
     \textbf{2. Automaton's production} (\href{https://cs.stackexchange.com/questions/41268/product-of-a-transition-system-and-a-finite-automaton}{reference})
@@ -139,11 +139,16 @@
     ~~~~And the answer should be like:
 
     \includegraphics{figures/1-1-answer.jpg}~\\[1cm]
-    \\
-    
-    \textbf{3. Why we need PDA$\rightarrow$Multi-automaton?}
-    
-    ~~~~In the case of finite states systems, the sets $X_i$ are all finite and the sequence $\{X_i\}_{i\geq 0}$ is guaranteed to reach a fix point, which immediately provides an algorithm to compute $pre^*(S)$. Unfortunately, these properties no longer hold for any non-trivial class of infinite states systems. 
+
+
+    \textbf{3. Why PDA $\rightarrow$ Multi-Automaton is necessary?}
+
+    ~~~~PDA has an infinite sets of states (because it has an infinite stack space, even though its control states and alphabet are all finite). So for a PDA, a state should be a configuration like $\langle p_i,\omega \rangle$. In the case of finite states systems, the sets $X_i$ are all finite, and the sequence $\{X_i\}_{i\geq 0}$ is guaranteed to reach a fix point, which immediately provides an algorithm to compute $pre^*(S)$. Unfortunately, these properties no longer hold for any non-trivial class of infinite states systems.
+
+    \textbf{~~~~Introduction to Alternating Multi-Automaton:} We can regard that an AMA has one initial state for each control location in Pushdown automaton, so for AMA, it doesn't just has only one initial state, instead, it has a initial states set. And the automaton recognizes the configuration $\langle p,\omega\rangle$ if it accepts the word $\omega$ from the initial state corresponding to $p$. (AMA is just a tool to represent a set of configurations, and not to confuse its "behaviour" with that of the pushdown system.)\cite{BouajjaniEM97}.
+
+
+    ~~~~\textbf{Multi-Automaton:} Given a MA $\mathcal{A}$, it returns a \emph{\textbf{regular}} set of configurations $C$ of PDA, what's more, we can get another MA $\mathcal{A}_{pre^*}$ recognizing $pre^*(C)$ (a closure set of $pre(C)$).
 
 %Example Listing
 \begin{lstlisting}[language=Python]
@@ -153,4 +158,7 @@ def main():
 
 
 \end{multicols}
+
+\bibliographystyle{alpha}
+\bibliography{references}
 \end{document} 
