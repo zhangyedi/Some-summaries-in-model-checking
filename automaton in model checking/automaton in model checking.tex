@@ -126,20 +126,25 @@
 \section{First Section}	
     \textbf{1. }One scenario where \textbf{\emph{'automaton is closed under complementation'}} is necessary:
 
-    ~~~~If an automaton $\mathcal{A}$ is closed under complementation, and an AMA $\mathcal{M}^{\langle\langle A\rangle\rangle\varphi}$ can recognize the set of configurations of $\mathcal{P}$ satisfying $\langle\langle A \rangle\rangle\varphi$ in a bottom-up approach. We assume that $\mathcal{M}^{\neg\langle\langle A \rangle\rangle\varphi }$ has also been computed to recognize $\mathcal{C}_{\mathcal{P}}$ (T Chen et al. 2016).
+    ~~~~If an automaton $\mathcal{A}$ is closed under complementation, and an AMA $\mathcal{M}^{\langle\langle A\rangle\rangle\varphi}$ can recognize the set of configurations of $\mathcal{P}$ satisfying $\langle\langle A \rangle\rangle\varphi$ in a bottom-up approach. We assume that $\mathcal{M}^{\neg\langle\langle A \rangle\rangle\varphi }$ has also been computed to recognize $\mathcal{C}_{\mathcal{P}}$ (T. Chen et al. 2016).
     \\
 
     \textbf{2. Automaton's production} (\href{https://cs.stackexchange.com/questions/41268/product-of-a-transition-system-and-a-finite-automaton}{reference})
     :
-    
-    ~~~~The question is like: 
-    
+
+    ~~~~The question is like:
+
     \includegraphics{figures/1-1-question.jpg}~\\[1cm]
-    
+
     ~~~~And the answer should be like:
-    
+
     \includegraphics{figures/1-1-answer.jpg}~\\[1cm]
+    \\
     
+    \textbf{3. Why we need PDA$\rightarrow$Multi-automaton?}
+    
+    ~~~~In the case of finite states systems, the sets $X_i$ are all finite and the sequence $\{X_i\}_{i\geq 0}$ is guaranteed to reach a fix point, which immediately provides an algorithm to compute $pre^*(S)$. Unfortunately, these properties no longer hold for any non-trivial class of infinite states systems. 
+
 %Example Listing
 \begin{lstlisting}[language=Python]
 def main():
